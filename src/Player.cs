@@ -18,7 +18,9 @@ namespace Test
 		{
 			int hdir = (int)Input.GetAxis(InputActions.PLAYER_MOVE_LEFT, InputActions.PLAYER_MOVE_RIGHT);
 			int vdir = (int)Input.GetAxis(InputActions.PLAYER_MOVE_UP, InputActions.PLAYER_MOVE_DOWN);
-			Position += new Vector2(hdir * speed, vdir * speed);
+			Vector2 dir = new Vector2(hdir, vdir);
+
+			Position += dir * speed;
 		}
 	}
 }
