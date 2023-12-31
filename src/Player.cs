@@ -1,26 +1,38 @@
 using Godot;
 
-namespace Test
+namespace GodotGame
 {
+	/// <summary>
+	/// The player character
+	/// </summary>
 	public partial class Player : Node2D
 	{
 		[Export]
 		private int speed;
 
-		public override void _Process(double delta)
+		// FIXME: will this work for all monitor frame rates?
+		public override void _PhysicsProcess(double delta)
 		{
-			HandleMoveInput();
+			Vector2 moveInput = GetMoveInput();
+			Move(moveInput);
 		}
 
-		// FIXME: does this need to be able to handle collisions? (MoveAndCollide/Slide?)
-		// FIXME: does this need to be adjusted with delta?
-		private void HandleMoveInput()
+		/// <summary>
+		/// Move the player in the given dir
+		/// </summary>
+		/// <param name="dir">The direction to move the player in</param>
+		public void Move(Vector2 dir)
+		{
+			// FIXME: does this need to be able to handle collisions? (MoveAndCollide/Slide?)
+			Position += dir * speed;
+		}
+
+		/// <returns>The current direction of the move input</returns>
+		private static Vector2 GetMoveInput()
 		{
 			int hdir = (int)Input.GetAxis(InputActions.PLAYER_MOVE_LEFT, InputActions.PLAYER_MOVE_RIGHT);
 			int vdir = (int)Input.GetAxis(InputActions.PLAYER_MOVE_UP, InputActions.PLAYER_MOVE_DOWN);
-			Vector2 dir = new Vector2(hdir, vdir).Normalized();
-
-			Position += dir * speed;
+			return new Vector2(hdir, vdir).Normalized();
 		}
 	}
 }
