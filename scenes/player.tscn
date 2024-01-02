@@ -1,20 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://c8aubrr0vkv8m"]
 
 [ext_resource type="Script" path="res://src/Player.cs" id="1_25bip"]
-[ext_resource type="SpriteFrames" uid="uid://gnh5pqc3ato2" path="res://animations/player/run.tres" id="2_np4v2"]
+[ext_resource type="SpriteFrames" uid="uid://d3lidlaw2h3bu" path="res://sprite frames/player.tres" id="2_u4o74"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ayr1n"]
 size = Vector2(128, 128)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animatedSprite")]
 script = ExtResource("1_25bip")
-facing = 1
 animatedSprite = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("2_np4v2")
-frame_progress = 0.00780914
-speed_scale = 2.5
+sprite_frames = ExtResource("2_u4o74")
+animation = &"run"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

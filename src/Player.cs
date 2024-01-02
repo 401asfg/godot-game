@@ -7,23 +7,45 @@ namespace GodotGame
 	/// </summary>
 	public partial class Player : CharacterBody2D
 	{
-		private const int MOVE_SPEED = 10;
+		private const int MOVE_SPEED = 600;
 
-		// FIXME: will this work for all monitor frame rates?
-		public override void _PhysicsProcess(double delta)
+		private const int MOVE_INPUT_IDLE = 0;
+		private const string ANIM_RUN = "run";
+
+		[Export]
+		private AnimatedSprite2D animatedSprite;
+
+		public override void _Process(double delta)
 		{
 			Vector2 moveInput = GetMoveInput();
-			Move(moveInput);
+			Move(moveInput, (float)delta);
+			Animate(moveInput);
 		}
 
 		/// <summary>
 		/// Move the player in the given dir
 		/// </summary>
 		/// <param name="dir">The direction to move the player in</param>
-		public void Move(Vector2 dir)
+		/// <param name="delta">The time elapsed since the previous frame</param>
+		private void Move(Vector2 dir, float delta)
 		{
-			// FIXME: does this need to be able to handle collisions? (MoveAndCollide/Slide?)
-			Position += dir * MOVE_SPEED;
+			Position += dir * MOVE_SPEED * delta;
+		}
+
+		/// <summary>
+		/// Animate the player's sprite according to the given moveInput
+		/// </summary>
+		/// <param name="moveInput">The current input value for player movement</param>
+		private void Animate(Vector2 moveInput)
+		{
+			if (moveInput == new Vector2(MOVE_INPUT_IDLE, MOVE_INPUT_IDLE))
+			{
+				animatedSprite.Stop();
+				return;
+			}
+
+			if (moveInput.X != MOVE_INPUT_IDLE) animatedSprite.FlipH = moveInput.X < MOVE_INPUT_IDLE;
+			animatedSprite.Play(ANIM_RUN);
 		}
 
 		/// <returns>The current direction of the move input</returns>
