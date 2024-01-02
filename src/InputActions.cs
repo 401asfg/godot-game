@@ -1,5 +1,8 @@
 namespace GodotGame
 {
+    /// <summary>
+    /// Specifies the names by which the game's input actions can be referenced
+    /// </summary>
     public static class InputActions
     {
         public const string PLAYER_MOVE_LEFT = "player_move_left";

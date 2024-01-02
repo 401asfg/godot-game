@@ -3,7 +3,7 @@ using Godot;
 namespace GodotGame
 {
 	/// <summary>
-	/// The player character
+	/// The character that is controlled by the player
 	/// </summary>
 	public partial class Player : Node2D
 	{
