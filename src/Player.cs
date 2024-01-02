@@ -5,10 +5,9 @@ namespace GodotGame
 	/// <summary>
 	/// The character that is controlled by the player
 	/// </summary>
-	public partial class Player : Node2D
+	public partial class Player : CharacterBody2D
 	{
-		[Export]
-		private int speed;
+		private const int MOVE_SPEED = 10;
 
 		// FIXME: will this work for all monitor frame rates?
 		public override void _PhysicsProcess(double delta)
@@ -24,7 +23,7 @@ namespace GodotGame
 		public void Move(Vector2 dir)
 		{
 			// FIXME: does this need to be able to handle collisions? (MoveAndCollide/Slide?)
-			Position += dir * speed;
+			Position += dir * MOVE_SPEED;
 		}
 
 		/// <returns>The current direction of the move input</returns>

@@ -1,12 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8aubrr0vkv8m"]
+[gd_scene load_steps=4 format=3 uid="uid://c8aubrr0vkv8m"]
 
 [ext_resource type="Script" path="res://src/Player.cs" id="1_25bip"]
-[ext_resource type="Texture2D" uid="uid://vlhx76b3loi3" path="res://sprites/icon.svg" id="2_0imid"]
+[ext_resource type="SpriteFrames" uid="uid://gnh5pqc3ato2" path="res://animations/player/run.tres" id="2_np4v2"]
 
-[node name="Player" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ayr1n"]
+size = Vector2(128, 128)
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animatedSprite")]
 script = ExtResource("1_25bip")
+facing = 1
+animatedSprite = NodePath("AnimatedSprite2D")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_0imid")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_np4v2")
+frame_progress = 0.00780914
+speed_scale = 2.5
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ayr1n")
