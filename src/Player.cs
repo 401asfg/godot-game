@@ -9,7 +9,7 @@ namespace GodotGame
 	{
 		private const int MOVE_SPEED = 600;
 
-		private const int MOVE_INPUT_IDLE = 0;
+		private const int MOVE_DIR_IDLE = 0;
 		private const string ANIM_RUN = "run";
 
 		[Export]
@@ -33,18 +33,18 @@ namespace GodotGame
 		}
 
 		/// <summary>
-		/// Animate the player's sprite according to the given moveInput
+		/// Animate the player's sprite according to the given moveDir
 		/// </summary>
-		/// <param name="moveInput">The current input value for player movement</param>
-		private void Animate(Vector2 moveInput)
+		/// <param name="moveDir">The current movement direction of the player</param>
+		private void Animate(Vector2 moveDir)
 		{
-			if (moveInput == new Vector2(MOVE_INPUT_IDLE, MOVE_INPUT_IDLE))
+			if (moveDir == new Vector2(MOVE_DIR_IDLE, MOVE_DIR_IDLE))
 			{
 				animatedSprite.Stop();
 				return;
 			}
 
-			if (moveInput.X != MOVE_INPUT_IDLE) animatedSprite.FlipH = moveInput.X < MOVE_INPUT_IDLE;
+			if (moveDir.X != MOVE_DIR_IDLE) animatedSprite.FlipH = moveDir.X < MOVE_DIR_IDLE;
 			animatedSprite.Play(ANIM_RUN);
 		}
 

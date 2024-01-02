@@ -13,6 +13,8 @@ animatedSprite = NodePath("AnimatedSprite2D")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_u4o74")
 animation = &"run"
+frame = 5
+frame_progress = 0.333886
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
