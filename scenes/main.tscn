@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://0lwja53lyyhv"]
+[gd_scene load_steps=5 format=3 uid="uid://0lwja53lyyhv"]
 
 [ext_resource type="PackedScene" uid="uid://c8aubrr0vkv8m" path="res://objects/player.tscn" id="1_hlao1"]
 [ext_resource type="TileSet" uid="uid://cu0lpyc3gkwh6" path="res://tilesets/main.tres" id="2_61q7r"]
 [ext_resource type="Script" path="res://src/EnemyManager.cs" id="3_7f2ur"]
+[ext_resource type="PackedScene" uid="uid://dek2c0mtj6347" path="res://objects/enemy.tscn" id="4_em3iv"]
 
 [node name="Main" type="Node2D"]
 
@@ -22,4 +23,5 @@ layer_0/tile_data = PackedInt32Array(-1310756, 0, 0, -1245220, 0, 1, -1179684, 0
 
 [node name="EnemyManager" type="Node" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("3_7f2ur")
+enemyResource = ExtResource("4_em3iv")
 player = NodePath("../Player")
