@@ -10,7 +10,9 @@ namespace GodotGame
 		public override void _Process(double delta)
 		{
 			Vector2 moveInput = GetMoveInput();
-			Walk(moveInput, (float)delta);
+			Move(moveInput, (float)delta);
+			Turn(moveInput.X);
+			Animate(moveInput);
 		}
 
 		/// <returns>The current direction of the move input</returns>

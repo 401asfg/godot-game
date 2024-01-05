@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/Main.cs" id="1_5txds"]
 [ext_resource type="PackedScene" uid="uid://c8aubrr0vkv8m" path="res://objects/player.tscn" id="1_hlao1"]
 [ext_resource type="TileSet" uid="uid://cu0lpyc3gkwh6" path="res://tilesets/main.tres" id="2_61q7r"]
-[ext_resource type="PackedScene" uid="uid://diuj7hdprbre2" path="res://objects/enemy_manager.tscn" id="4_2q8sb"]
+[ext_resource type="PackedScene" uid="uid://c8lxtu7cswi1x" path="res://objects/enemy_manager.tscn" id="4_2q8sb"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_5txds")
@@ -22,4 +22,5 @@ layer_0/tile_data = PackedInt32Array(-1310756, 0, 0, -1245220, 0, 1, -1179684, 0
 
 [node name="Player" parent="." instance=ExtResource("1_hlao1")]
 
-[node name="EnemyManager" parent="." instance=ExtResource("4_2q8sb")]
+[node name="EnemyManager" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_2q8sb")]
+player = NodePath("../Player")

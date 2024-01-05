@@ -35,9 +35,14 @@ namespace GodotGame
 			Vector2 targetDir = targetDiff.Normalized();
 			float targetDist = targetDiff.Length();
 
-			if (targetDist < attackDistance) return;
+			Turn(targetDir.X);
 
-			Walk(targetDir, (float)delta);
+			Vector2 moveDir = targetDir;
+
+			if (targetDist < attackDistance) moveDir = Vector2.Zero;
+
+			Move(moveDir, (float)delta);
+			Animate(moveDir);
 		}
 
 		/// <returns>Produces the difference vector between the target's position and this enemy's position</returns>
