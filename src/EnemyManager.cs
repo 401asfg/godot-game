@@ -32,16 +32,14 @@ namespace GodotGame
 		{
 			if (maxSpawnDistance < minSpawnDistance) throw new Exception("Max Spawn Distance is less than its Min Spawn Distance");
 			random = new RandomNumberGenerator();
-			CreateSpawnTimers(enemies, enemySpawnIntervals);
+			CreateSpawnTimers();
 		}
 
 		/// <summary>
-		/// Creates a set of infinitely looping timers that each spawn one of the enemies when triggered
+		/// Creates a set of infinitely looping timers that each spawn one of the enemies when triggered; The timers each have a wait time equal to that timer's enemy's corresponding spawn interval
 		/// </summary>
-		/// <param name="enemies">The enemies to spawn instances of</param>
-		/// <param name="enemySpawnIntervals">The seconds between the repeated spawns for each of the given enemies</param>
 		/// <exception cref="ArgumentException">Thrown if the length of enemies and enemySpawnIntervals aren't equal</exception>
-		private void CreateSpawnTimers(PackedScene[] enemies, double[] enemySpawnIntervals)
+		private void CreateSpawnTimers()
 		{
 			if (enemies.Length != enemySpawnIntervals.Length) throw new ArgumentException("Enemies aren't matched one to one by their Spawn Intervals");
 

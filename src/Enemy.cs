@@ -29,8 +29,6 @@ namespace GodotGame
 
 		public override void _Process(double delta)
 		{
-			if (target == null) return;
-
 			Vector2 targetDiff = GetTargetPositionDiff();
 			Vector2 targetDir = targetDiff.Normalized();
 			float targetDist = targetDiff.Length();
@@ -45,9 +43,10 @@ namespace GodotGame
 			Animate(moveDir);
 		}
 
-		/// <returns>Produces the difference vector between the target's position and this enemy's position</returns>
+		/// <returns>The difference vector between the target's position and this enemy's position; If the enemy's target is not set, produces a zero vector</returns>
 		private Vector2 GetTargetPositionDiff()
 		{
+			if (target == null) return Vector2.Zero;
 			return target.Position - Position;
 		}
 	}
