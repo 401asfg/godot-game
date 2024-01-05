@@ -8,13 +8,14 @@ size = Vector2(64, 64)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animatedSprite")]
 script = ExtResource("1_25bip")
+moveSpeed = 600
 animatedSprite = NodePath("AnimatedSprite2D")
+maxHealth = 100
+Health = 100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_u4o74")
-animation = &"run"
-frame = 5
-frame_progress = 0.927666
+animation = &"walk"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

@@ -9,7 +9,8 @@ namespace GodotGame
     {
         protected const int MIN_HEALTH = 0;
         private const int MOVE_DIR_IDLE = 0;
-        private const string ANIM_RUN = "run";
+        // FIXME: change sprite frame name to reflect this change
+        private const string ANIM_WALK = "walk";
 
         [Export]
         protected int moveSpeed;
@@ -38,11 +39,22 @@ namespace GodotGame
         }
 
         /// <summary>
+        /// Moves the character in the given dir with the walk animation for that dir
+        /// </summary>
+        /// <param name="dir">The direction to walk the character in</param>
+        /// <param name="delta">The time elapsed since the previous frame</param>
+        protected virtual void Walk(Vector2 dir, float delta)
+        {
+            Move(dir, delta);
+            AnimateWalk(dir);
+        }
+
+        /// <summary>
         /// Move the character in the given dir
         /// </summary>
         /// <param name="dir">The direction to move the character in</param>
         /// <param name="delta">The time elapsed since the previous frame</param>
-        protected void Move(Vector2 dir, float delta)
+        protected virtual void Move(Vector2 dir, float delta)
         {
             Position += dir * moveSpeed * delta;
         }
@@ -51,16 +63,16 @@ namespace GodotGame
         /// Animate the character's sprite according to the given moveDir
         /// </summary>
         /// <param name="moveDir">The current movement direction of the character</param>
-        protected void Animate(Vector2 moveDir)
+        protected virtual void AnimateWalk(Vector2 moveDir)
         {
-            if (moveDir == new Vector2(MOVE_DIR_IDLE, MOVE_DIR_IDLE))
+            if (moveDir.X == MOVE_DIR_IDLE && moveDir.Y == MOVE_DIR_IDLE)
             {
                 animatedSprite.Stop();
                 return;
             }
 
             if (moveDir.X != MOVE_DIR_IDLE) animatedSprite.FlipH = moveDir.X < MOVE_DIR_IDLE;
-            animatedSprite.Play(ANIM_RUN);
+            animatedSprite.Play(ANIM_WALK);
         }
     }
 }

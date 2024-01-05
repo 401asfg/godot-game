@@ -10,9 +10,7 @@ namespace GodotGame
 		public override void _Process(double delta)
 		{
 			Vector2 moveInput = GetMoveInput();
-			// FIXME: merge call into single Run or AnimatedMove method?
-			Move(moveInput, (float)delta);
-			Animate(moveInput);
+			Walk(moveInput, (float)delta);
 		}
 
 		/// <returns>The current direction of the move input</returns>

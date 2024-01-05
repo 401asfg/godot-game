@@ -8,9 +8,10 @@ size = Vector2(128, 128)
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_15tr1")
+attackDamage = 5
+attackDistance = 5.0
 maxHealth = 10
 Health = 10
-attackDamage = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_fedum")
