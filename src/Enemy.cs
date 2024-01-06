@@ -46,7 +46,7 @@ namespace GodotGame
 		/// <returns>The difference vector between the target's position and this enemy's position; If the enemy's target is not set, produces a zero vector</returns>
 		private Vector2 GetTargetPositionDiff()
 		{
-			if (target == null) return Vector2.Zero;
+			if (target == null) return new Vector2(MOVE_DIR_IDLE, MOVE_DIR_IDLE);
 			return target.Position - Position;
 		}
 	}

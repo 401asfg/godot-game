@@ -8,9 +8,9 @@ namespace GodotGame
     public abstract partial class Character : CharacterBody2D
     {
         protected const int MIN_HEALTH = 0;
-        private const int MOVE_DIR_IDLE = 0;
+        protected const int MOVE_DIR_IDLE = 0;
         // FIXME: change sprite frame name to reflect this change
-        private const string ANIM_WALK = "walk";
+        protected const string ANIM_MOVE = "move";
 
         [Export]
         protected int moveSpeed;
@@ -69,7 +69,7 @@ namespace GodotGame
                 return;
             }
 
-            animatedSprite.Play(ANIM_WALK);
+            animatedSprite.Play(ANIM_MOVE);
         }
     }
 }
