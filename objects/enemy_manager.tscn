@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c8lxtu7cswi1x"]
 
-[ext_resource type="Script" path="res://src/EnemyManager.cs" id="1_dmvx4"]
+[ext_resource type="Script" path="res://scripts/EnemyManager.cs" id="1_dmvx4"]
 [ext_resource type="PackedScene" uid="uid://dek2c0mtj6347" path="res://objects/enemy.tscn" id="2_wp5e4"]
 
 [node name="EnemyManager" type="Node2D"]

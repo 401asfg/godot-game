@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://0lwja53lyyhv"]
 
-[ext_resource type="Script" path="res://src/Main.cs" id="1_5txds"]
+[ext_resource type="Script" path="res://scripts/Main.cs" id="1_5txds"]
 [ext_resource type="PackedScene" uid="uid://c8aubrr0vkv8m" path="res://objects/player.tscn" id="1_hlao1"]
 [ext_resource type="TileSet" uid="uid://cu0lpyc3gkwh6" path="res://tilesets/main.tres" id="2_61q7r"]
 [ext_resource type="PackedScene" uid="uid://c8lxtu7cswi1x" path="res://objects/enemy_manager.tscn" id="4_2q8sb"]

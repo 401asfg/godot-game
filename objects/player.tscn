@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c8aubrr0vkv8m"]
 
-[ext_resource type="Script" path="res://src/Player.cs" id="1_25bip"]
-[ext_resource type="SpriteFrames" uid="uid://d3lidlaw2h3bu" path="res://sprite frames/player.tres" id="2_u4o74"]
+[ext_resource type="Script" path="res://scripts/Player.cs" id="1_25bip"]
+[ext_resource type="SpriteFrames" uid="uid://d3lidlaw2h3bu" path="res://sprite_frames/player.tres" id="2_4ii8q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ayr1n"]
 size = Vector2(64, 64)
@@ -14,7 +14,7 @@ maxHealth = 100
 Health = 100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("2_u4o74")
+sprite_frames = ExtResource("2_4ii8q")
 animation = &"move"
 
 [node name="Camera2D" type="Camera2D" parent="."]
