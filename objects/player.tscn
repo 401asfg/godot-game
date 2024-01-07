@@ -15,7 +15,7 @@ Health = 100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_u4o74")
-animation = &"walk"
+animation = &"move"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
