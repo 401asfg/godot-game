@@ -9,7 +9,6 @@ namespace GodotGame
     {
         protected const int MIN_HEALTH = 0;
         protected const int MOVE_DIR_IDLE = 0;
-        // FIXME: change sprite frame name to reflect this change
         protected const string ANIM_MOVE = "move";
 
         [Export]
