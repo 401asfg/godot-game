@@ -38,13 +38,13 @@ namespace GodotGame
         }
 
         /// <summary>
-        /// Move the character in the given dir
+        /// Move the character in the given dir, slide on collision
         /// </summary>
         /// <param name="dir">The direction to move the character in</param>
-        /// <param name="delta">The time elapsed since the previous frame</param>
-        protected virtual void Move(Vector2 dir, float delta)
+        protected virtual void MoveAndSlide(Vector2 dir)
         {
-            Position += dir * moveSpeed * delta;
+            Velocity = dir * moveSpeed;
+            MoveAndSlide();
         }
 
         /// <summary>

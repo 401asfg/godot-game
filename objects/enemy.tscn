@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scripts/Enemy.cs" id="1_n7vu7"]
 [ext_resource type="SpriteFrames" uid="uid://d3lidlaw2h3bu" path="res://sprite_frames/player.tres" id="2_vxefg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jwtu"]
-size = Vector2(128, 128)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3uwx3"]
+size = Vector2(25, 27)
 
 [node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("animatedSprite")]
 script = ExtResource("1_n7vu7")
@@ -20,4 +20,4 @@ sprite_frames = ExtResource("2_vxefg")
 animation = &"move"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_4jwtu")
+shape = SubResource("RectangleShape2D_3uwx3")

@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://d3lidlaw2h3bu" path="res://sprite_frames/player.tres" id="2_4ii8q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ayr1n"]
-size = Vector2(64, 64)
+size = Vector2(25, 27)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animatedSprite")]
 script = ExtResource("1_25bip")

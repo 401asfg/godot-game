@@ -38,7 +38,7 @@ namespace GodotGame
 
 			if (targetDist < attackDistance) moveDir = Vector2.Zero;
 
-			Move(moveDir, (float)delta);
+			MoveAndSlide(moveDir);
 			Animate(moveDir);
 		}
 

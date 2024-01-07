@@ -10,7 +10,7 @@ namespace GodotGame
 		public override void _Process(double delta)
 		{
 			Vector2 moveInput = GetMoveInput();
-			Move(moveInput, (float)delta);
+			MoveAndSlide(moveInput);
 			Turn(moveInput.X);
 			Animate(moveInput);
 		}
