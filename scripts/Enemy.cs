@@ -26,27 +26,20 @@ namespace GodotGame
 			this.target = target;
 		}
 
-		public override void _Process(double delta)
-		{
-			Vector2 targetDiff = GetTargetPositionDiff();
-			Vector2 targetDir = targetDiff.Normalized();
-			float targetDist = targetDiff.Length();
+        protected override Vector2 GetDirection()
+        {
+			return GetTargetPositionDiff().Normalized();
+        }
 
-			Turn(targetDir.X);
-			Animate(targetDir);
+        protected override void MoveAndSlide(Vector2 dir)
+        {
+			if (GetTargetPositionDiff().Length() < attackDistance) dir = Vector2.Zero;
+            base.MoveAndSlide(dir);
+        }
 
-			Vector2 moveDir = targetDir;
-
-			if (targetDist < attackDistance) moveDir = Vector2.Zero;
-
-			MoveAndSlide(moveDir);
-		}
-
-		/// <returns>The difference vector between the target's position and this enemy's position; If the enemy's target is not set, produces a zero vector</returns>
-		private Vector2 GetTargetPositionDiff()
-		{
+		private Vector2 GetTargetPositionDiff() {
 			if (target == null) return new Vector2(MOVE_DIR_IDLE, MOVE_DIR_IDLE);
 			return target.Position - Position;
 		}
-	}
+    }
 }

@@ -7,20 +7,11 @@ namespace GodotGame
 	/// </summary>
 	public partial class Player : Character
 	{
-		public override void _Process(double delta)
-		{
-			Vector2 moveInput = GetMoveInput();
-			MoveAndSlide(moveInput);
-			Turn(moveInput.X);
-			Animate(moveInput);
-		}
-
-		/// <returns>The current direction of the move input</returns>
-		private static Vector2 GetMoveInput()
-		{
+        protected override Vector2 GetDirection()
+        {
 			int hdir = (int)Input.GetAxis(InputActions.PLAYER_MOVE_LEFT, InputActions.PLAYER_MOVE_RIGHT);
 			int vdir = (int)Input.GetAxis(InputActions.PLAYER_MOVE_UP, InputActions.PLAYER_MOVE_DOWN);
 			return new Vector2(hdir, vdir).Normalized();
-		}
-	}
+        }
+    }
 }

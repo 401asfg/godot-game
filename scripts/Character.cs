@@ -39,6 +39,17 @@ namespace GodotGame
             }
         }
 
+		public override void _Process(double delta)
+        {
+            Vector2 dir = GetDirection();
+            MoveAndSlide(dir);
+            Turn(dir.X);
+            Animate(dir);
+        }
+
+        /// <returns>The direction the character should move in</returns>
+        protected abstract Vector2 GetDirection();
+
         /// <summary>
         /// Move the character in the given dir, slide on collision
         /// </summary>
