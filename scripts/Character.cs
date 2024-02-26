@@ -1,3 +1,5 @@
+// FIXME: enemies sometimes get caught on the player
+
 using Godot;
 
 namespace GodotGame

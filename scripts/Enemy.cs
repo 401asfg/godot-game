@@ -33,13 +33,13 @@ namespace GodotGame
 			float targetDist = targetDiff.Length();
 
 			Turn(targetDir.X);
+			Animate(targetDir);
 
 			Vector2 moveDir = targetDir;
 
 			if (targetDist < attackDistance) moveDir = Vector2.Zero;
 
 			MoveAndSlide(moveDir);
-			Animate(moveDir);
 		}
 
 		/// <returns>The difference vector between the target's position and this enemy's position; If the enemy's target is not set, produces a zero vector</returns>
