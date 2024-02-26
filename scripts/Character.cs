@@ -47,7 +47,7 @@ namespace GodotGame
             Animate(dir);
         }
 
-        /// <returns>The direction the character should move in</returns>
+        /// <returns>The normalized direction the character should move in</returns>
         protected abstract Vector2 GetDirection();
 
         /// <summary>
